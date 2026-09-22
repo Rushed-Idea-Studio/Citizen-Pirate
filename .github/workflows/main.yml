@@ -1,0 +1,77 @@
+name: "Unity Pipeline"
+
+on:
+  push:
+    branches:
+      - "main"
+
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  unity-ci:
+    name: "Test & Build Unity"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # -------------------------------------------------------
+      # 1. Checkout repository
+      # -------------------------------------------------------
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      # -------------------------------------------------------
+      # 2. Cache Unity Library
+      # -------------------------------------------------------
+      - name: "Cache Unity Library"
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-${{ runner.os }}-
+
+      # -------------------------------------------------------
+      # 3. Check if Unity tests exist
+      # -------------------------------------------------------
+      - name: "Check for Unity tests"
+        id: check-tests
+        shell: bash
+        run: |
+          if grep -R -E '\[(Test|UnityTest)\]' Assets --include="*.cs" -q; then
+            echo "Unity tests found."
+            echo "tests_exist=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No Unity tests found. Skipping tests."
+            echo "tests_exist=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # -------------------------------------------------------
+      # 4. Run tests only if they exist
+      # -------------------------------------------------------
+      - name: "Run Unity Tests"
+        if: steps.check-tests.outputs.tests_exist == 'true'
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ""
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # -------------------------------------------------------
+      # 5. Build Unity project
+      # -------------------------------------------------------
+      - name: "Build Unity Project"
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ""
+          targetPlatform: StandaloneLinux64
