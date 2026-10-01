@@ -29,9 +29,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 425660}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -55,7 +55,10 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -98,6 +101,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &125852
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,13 +128,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125852}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 22425850}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11426072
 MonoBehaviour:
@@ -144,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8b685e62a9aeb4a9472b30ec2d86d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDatabase: {fileID: 0}
+  initialDatabase: {fileID: 11400000, guid: dc765e5fd13e8284cb2168a2a94ba9f6, type: 2}
   displaySettings:
     conversationOverrideSettings:
       useOverrides: 0
@@ -169,9 +174,12 @@ MonoBehaviour:
       cancelSubtitle:
         key: 27
         buttonName: 
+        inputAction: {fileID: 0}
       cancelConversation:
         key: 27
         buttonName: 
+        inputAction: {fileID: 0}
+      actorSubtitlePanelOverrides: []
     dialogueUI: {fileID: 101180, guid: 5ba51781a19f8a843abeb2d304d0d26e, type: 3}
     defaultCanvas: {fileID: 22325660}
     localizationSettings:
@@ -183,23 +191,26 @@ MonoBehaviour:
       showNPCSubtitlesWithResponses: 1
       showPCSubtitlesDuringLine: 0
       allowPCSubtitleReminders: 0
-      skipPCSubtitleAfterResponseMenu: 1
+      skipPCSubtitleAfterResponseMenu: 0
       subtitleCharsPerSecond: 30
       minSubtitleSeconds: 2
-      continueButton: 0
+      continueButton: 4
       requireContinueOnLastLine: 0
       richTextEmphases: 1
+      convertPipesToLineBreaks: 1
       informSequenceStartAndEnd: 0
     cameraSettings:
       sequencerCamera: {fileID: 0}
       alternateCameraObject: {fileID: 0}
       cameraAngles: {fileID: 0}
+      cameraEasing: 0
       keepCameraPositionAtConversationEnd: 0
       showSubtitleOnEmptyContinue: 0
       defaultSequence: Delay({{end}})
       defaultPlayerSequence: 
       defaultResponseMenuSequence: 
       entrytagFormat: 0
+      treatAllCommandsAsRequired: 0
       reportMissingAudioFiles: 0
       disableInternalSequencerCommands: 0
     inputSettings:
@@ -215,9 +226,11 @@ MonoBehaviour:
       cancel:
         key: 0
         buttonName: 
+        inputAction: {fileID: 0}
       cancelConversation:
         key: 0
         buttonName: 
+        inputAction: {fileID: 0}
     barkSettings:
       allowBarksDuringConversations: 1
       barkCharsPerSecond: 0
@@ -242,9 +255,11 @@ MonoBehaviour:
     initializeNewVariables: 1
   allowSimultaneousConversations: 0
   interruptActiveConversations: 0
+  ignoreContinueWhenConversationsStartAndEndSameFrame: 1
   stopEvaluationAtFirstValid: 0
   reevaluateLinksAfterSubtitle: 0
   useLinearGroupMode: 0
+  updateActiveConversationTextWhenLanguageChanges: 1
   includeSimStatus: 0
   instantiateDatabase: 1
   preloadResources: 1
@@ -255,6 +270,7 @@ MonoBehaviour:
   onStartTriggerWaitForSaveDataApplied: 0
   dialogueTimeMode: 0
   debugLevel: 2
+  invokeOnQuestStateChangeForEntries: 1
 --- !u!114 &11471062
 MonoBehaviour:
   m_ObjectHideFlags: 0
