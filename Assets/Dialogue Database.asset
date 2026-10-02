@@ -162,6 +162,48 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+  - id: 2
+    fields:
+    - title: Name
+      value: Red_die
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: Agressive
+      type: 0
+      typeString: 
+  - id: 3
+    fields:
+    - title: Name
+      value: Grey_die
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: Calm
+      type: 0
+      typeString: 
+  - id: 4
+    fields:
+    - title: Name
+      value: Green_die
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: Witty
+      type: 0
+      typeString: 
   conversations:
   - id: 1
     fields:
@@ -2022,7 +2064,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: SetActive(GetReadyButton, true); Continue()
+        value: SetActive(DiceUI, true); SetActive(GetReadyButton, true); SetDie(green,
+          1); SetDie(red, 2); SetDie(grey, 3); Continue()
         type: 0
         typeString: 
       conversationID: 3
@@ -2040,12 +2083,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 159
+        x: 158
         y: 429
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 1}
     canvasZoom: 1
   - id: 4
     fields:
@@ -2131,7 +2174,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 4
@@ -2900,7 +2943,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 14
+        destinationConversationID: 4
+        destinationDialogueID: 17
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -3022,9 +3071,58 @@ MonoBehaviour:
         y: 670.06226
         width: 160
         height: 30
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: LoadLevel(UpperDeckAct01); RollDice()
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 300.5185
+        y: 821.19855
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 210.19046, y: 0}
-    canvasZoom: 0.85000014
+    canvasScrollPosition: {x: 208.92345, y: 527.6465}
+    canvasZoom: 0.97
   syncInfo:
     syncActors: 0
     syncItems: 0
