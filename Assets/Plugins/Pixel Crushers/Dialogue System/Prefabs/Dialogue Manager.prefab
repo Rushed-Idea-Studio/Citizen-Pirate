@@ -189,9 +189,9 @@ MonoBehaviour:
     subtitleSettings:
       showNPCSubtitlesDuringLine: 1
       showNPCSubtitlesWithResponses: 1
-      showPCSubtitlesDuringLine: 0
+      showPCSubtitlesDuringLine: 1
       allowPCSubtitleReminders: 0
-      skipPCSubtitleAfterResponseMenu: 0
+      skipPCSubtitleAfterResponseMenu: 1
       subtitleCharsPerSecond: 30
       minSubtitleSeconds: 2
       continueButton: 4
@@ -214,7 +214,7 @@ MonoBehaviour:
       reportMissingAudioFiles: 0
       disableInternalSequencerCommands: 0
     inputSettings:
-      alwaysForceResponseMenu: 1
+      alwaysForceResponseMenu: 0
       includeInvalidEntries: 0
       responseTimeout: 0
       responseTimeoutAction: 0
