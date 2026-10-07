@@ -8,7 +8,7 @@ public class DiceManager : Singleton<DiceManager>
     [Tooltip("The dice values are stored in the Dialogue System variables: Green_die, Red_die, Grey_die")]
     [Serializable]
     private class StatDie
-    {        
+    {
         [SerializeField] private int value = 1;
         public int Value { get { return value; } }
 
@@ -22,7 +22,7 @@ public class DiceManager : Singleton<DiceManager>
             this.value = Mathf.Clamp(newValue, 0, 6);
         }
     }
-    
+
     [Header("Dice Data")]
     [SerializeField] private StatDie greenDie;
     [SerializeField] private StatDie redDie;
@@ -33,6 +33,10 @@ public class DiceManager : Singleton<DiceManager>
     [SerializeField] private TextMeshProUGUI redDieText;
     [SerializeField] private TextMeshProUGUI greyDieText;
 
+    const string GREEN_DIE_VARIABLE = "Green_die";
+    const string RED_DIE_VARIABLE = "Red_die";
+    const string GREY_DIE_VARIABLE = "Grey_die";
+
     private void Awake()
     {
         base.Awake();
@@ -40,9 +44,12 @@ public class DiceManager : Singleton<DiceManager>
         // Initialize dice if they are not initialized by the Inspector
         if (greenDie == null) greenDie = new StatDie();
         if (redDie == null) redDie = new StatDie();
-        if (greyDie == null) greyDie = new StatDie();        
+        if (greyDie == null) greyDie = new StatDie();
     }
 
+    /// <summary>
+    /// Rolls all three dice and updates the Dialogue System variables and UI text elements accordingly.
+    /// </summary>
     public void RollDice()
     {
         greenDie.Roll();
@@ -52,13 +59,18 @@ public class DiceManager : Singleton<DiceManager>
         string resultMessage = $"Green Die: {greenDie.Value}, Red Die: {redDie.Value}, Grey Die: {greyDie.Value}";
         Debug.Log($"Dice random roll result: {resultMessage}");
 
-        DialogueLua.SetVariable("Green_die", greenDie.Value);
-        DialogueLua.SetVariable("Red_die", redDie.Value);
-        DialogueLua.SetVariable("Grey_die", greyDie.Value);
+        DialogueLua.SetVariable(GREEN_DIE_VARIABLE, greenDie.Value);
+        DialogueLua.SetVariable(RED_DIE_VARIABLE, redDie.Value);
+        DialogueLua.SetVariable(GREY_DIE_VARIABLE, greyDie.Value);
 
         UpdateDiceVisuals();
     }
 
+    /// <summary>
+    /// Sets the value of a specific die based on its color and updates the Dialogue System variable and UI text element accordingly.
+    /// </summary>
+    /// <param name="dieColor"></param>
+    /// <param name="value"></param>
     public void SetDieValue(string dieColor, int value)
     {
         string color = string.Empty;
@@ -67,15 +79,15 @@ public class DiceManager : Singleton<DiceManager>
         {
             case "green":
                 greenDie.SetValue(value);
-                color = "Green";
+                color = GREEN_DIE_VARIABLE;
                 break;
             case "red":
                 redDie.SetValue(value);
-                color = "Red";
+                color = RED_DIE_VARIABLE;
                 break;
             case "grey":
                 greyDie.SetValue(value);
-                color = "Grey";
+                color = GREY_DIE_VARIABLE;
                 break;
             default:
                 Debug.LogWarning($"Invalid die color: {dieColor}");
@@ -84,7 +96,7 @@ public class DiceManager : Singleton<DiceManager>
 
         if (!string.IsNullOrEmpty(color))
         {
-            DialogueLua.SetVariable($"{color}_die", value);
+            DialogueLua.SetVariable(color, value);
             UpdateDiceVisuals();
         }
         else
