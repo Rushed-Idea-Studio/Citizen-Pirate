@@ -6,7 +6,8 @@ public class SequencerCommandRollDice : SequencerCommand
 {
     private void Awake()
     {
-        DiceManager.Instance.RollDice();
+        DiceManager.Instance.RollStatDice();
+        DiceManager.Instance.UpdateAllStatDiceVisuals();
 
         Stop();
     }

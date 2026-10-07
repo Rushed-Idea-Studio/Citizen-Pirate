@@ -4,12 +4,14 @@ using PixelCrushers.DialogueSystem.SequencerCommands;
 
 public class SequencerCommandSetDie : SequencerCommand
 {
+    [Tooltip("Sets the value of a stat die by its ID.")]
     private void Awake()
     {
-        string dieColor = GetParameter(0);
+        string statDieID = GetParameter(0);
         int dieValue = GetParameterAsInt(1);
 
-        DiceManager.Instance.SetDieValue(dieColor, dieValue);
+        DiceManager.Instance.SetStatDieValue(statDieID, dieValue);
+        DiceManager.Instance.UpdateAllStatDiceVisuals();
 
         Stop();
     }

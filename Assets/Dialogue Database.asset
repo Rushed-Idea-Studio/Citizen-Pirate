@@ -162,48 +162,6 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 2
-    fields:
-    - title: Name
-      value: Red_die
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: Agressive
-      type: 0
-      typeString: 
-  - id: 3
-    fields:
-    - title: Name
-      value: Grey_die
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: Calm
-      type: 0
-      typeString: 
-  - id: 4
-    fields:
-    - title: Name
-      value: Green_die
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: Witty
-      type: 0
-      typeString: 
   conversations:
   - id: 1
     fields:
@@ -2064,8 +2022,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: SetActive(DiceUI, true); SetActive(GetReadyButton, true); SetDie(green,
-          1); SetDie(red, 2); SetDie(grey, 3); Continue()
+        value: SetActive(DiceUI, true); SetActive(GetReadyButton, true); Continue()
         type: 0
         typeString: 
       conversationID: 3
@@ -2077,7 +2034,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: AddStatDie("green", "green"); AddStatDie("red", "red"); AddStatDie("grey",
+        "grey"); SetStatDieValue("green", 1); SetStatDieValue("red", 2); SetStatDieValue("grey",
+        3);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2297,6 +2256,18 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 4
+        originDialogueID: 2
+        destinationConversationID: 4
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 2
+        destinationConversationID: 4
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2305,7 +2276,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 709.9998
-        y: 146.85715
+        y: 150.80452
         width: 160
         height: 30
     - id: 3
@@ -2327,7 +2298,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'JUST WAIT TO SEE WHAT HAPPENS [f]'
+        value: 'JUST WAIT TO SEE WHAT HAPPENS [[lua(GetCurrentPower("grey", "grey"))]]'
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -2360,7 +2331,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 711.9998
-        y: 235.85715
+        y: 233.22562
         width: 160
         height: 30
     - id: 4
@@ -2382,11 +2353,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: 'FIND A HIDING SPOT [[lua(GetCurrentPower("green", "green,red"))]]'
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: FIND A HIDING SPOT
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -2400,7 +2371,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 4
+        destinationConversationID: 4
+        destinationDialogueID: 18
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2431,7 +2408,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: PUNCH THE PERSON IMMEDIATELY WHEN THEY ENTER
+        value: 'PUNCH THE PERSON IMMEDIATELY WHEN THEY ENTER [[lua(GetCurrentPower("red",
+          "green,red"))]]'
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -2449,7 +2427,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 5
+        destinationConversationID: 4
+        destinationDialogueID: 19
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -3120,9 +3104,121 @@ MonoBehaviour:
         y: 821.19855
         width: 160
         height: 30
+    - id: 18
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "TESTOVAC\xCD ROZHODNUT\xCD - POKRA\u010CUJE SE PRO V\u0160ECHNY ROZHODNUT\xCD
+          STEJN\u011A"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 18
+        destinationConversationID: 4
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 518.9998
+        y: 283.85718
+        width: 160
+        height: 30
+    - id: 19
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "TESTOVAC\xCD ROZHODNUT\xCD - POKRA\u010CUJE SE PRO V\u0160ECHNY ROZHODNUT\xCD
+          STEJN\u011A"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 19
+        destinationConversationID: 4
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 914.9998
+        y: 283.85718
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 208.92345, y: 527.6465}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 281.4519, y: 46.451485}
+    canvasZoom: 0.76000005
   syncInfo:
     syncActors: 0
     syncItems: 0
