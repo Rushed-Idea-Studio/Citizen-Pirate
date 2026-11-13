@@ -12,7 +12,8 @@ public class DiceManager : Singleton<DiceManager>
         public StatDieDefinition Definition { get; private set; }
         public string ID { get; private set; }
         public int Value { get; private set; }
-        public bool IsSelected { get; private set; }
+        public string AssignedTarget { get; private set; }
+        public bool IsLocked { get; private set; }
         public GameObject UIObject { get; set; }
 
         public RuntimeStatDie(StatDieDefinition definition, string id)
@@ -20,13 +21,14 @@ public class DiceManager : Singleton<DiceManager>
             this.Definition = definition;
             this.ID = id;
             this.Value = 1;
-            this.IsSelected = false;
+            this.AssignedTarget = "";
+            this.IsLocked = false;
         }
 
         public void Roll()
         {
             this.Value = UnityEngine.Random.Range(1, 7);
-            this.IsSelected = false;
+            this.AssignedTarget = "";
         }
 
         public void SetValue(int newValue)
@@ -34,18 +36,24 @@ public class DiceManager : Singleton<DiceManager>
             this.Value = Mathf.Clamp(newValue, 1, 6);
         }
 
-        public void ToggleSelection()
+        // Assigns the die to a specific target option
+        public void AssignTo(string target)
         {
-            this.IsSelected = !this.IsSelected;
+            this.AssignedTarget = target;
+        }
+
+        public void SetLocked(bool isLocked)
+        {
+            this.IsLocked = isLocked;
         }
 
         public void ClearSelection()
         {
-            this.IsSelected = false;
+            this.AssignedTarget = "";
         }
     }
     
-    [Header("Database ")]
+    [Header("Database")]
     [SerializeField] private List<StatDieDefinition> allPossibleStatDice = new List<StatDieDefinition>();
 
     [Header("Dice UI Setup")]
@@ -53,14 +61,19 @@ public class DiceManager : Singleton<DiceManager>
     [SerializeField] private Transform uiParent;
 
     private List<RuntimeStatDie> playerStatDice = new List<RuntimeStatDie>();
+    
+    // Tracks the current active dialogue options to cycle through
+    private List<string> currentActiveOptions = new List<string>();
+    private string lastActiveTypesCSV = "";
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
     }
     
     private void OnEnable()
     {
+        Lua.RegisterFunction("IsHighestPower", this, SymbolExtensions.GetMethodInfo(() => LuaIsHighestPower("", "")));
         Lua.RegisterFunction("HasPower", this, SymbolExtensions.GetMethodInfo(() => LuaHasPower("", "", (double)0)));
         Lua.RegisterFunction("GetCurrentPower", this, SymbolExtensions.GetMethodInfo(() => LuaGetCurrentPower("", "")));
         Lua.RegisterFunction("ClearStatDiceSelection", this, SymbolExtensions.GetMethodInfo(() => LuaClearSelection()));
@@ -71,6 +84,7 @@ public class DiceManager : Singleton<DiceManager>
 
     private void OnDisable()
     {
+        Lua.UnregisterFunction("IsHighestPower");
         Lua.UnregisterFunction("HasPower");
         Lua.UnregisterFunction("GetCurrentPower");
         Lua.UnregisterFunction("ClearStatDiceSelection");
@@ -91,7 +105,7 @@ public class DiceManager : Singleton<DiceManager>
         }
         else
         {
-            Debug.LogWarning($"Stat Die with type '{statDieType}' not found in the database.");
+            Debug.LogWarning($"Stat Die with type \"{statDieType}\" not found in the database.");
         }
     }
 
@@ -111,9 +125,6 @@ public class DiceManager : Singleton<DiceManager>
         AddStatDie(statDieType, generatedID);
     }
 
-    /// <summary>
-    /// Rolls all the player's stat dice and updates the Dialogue System variables and UI text elements accordingly.
-    /// </summary>
     public void RollStatDice()
     {
         foreach (var statDie in playerStatDice)
@@ -123,11 +134,6 @@ public class DiceManager : Singleton<DiceManager>
         UpdateAllStatDiceVisuals();
     }
 
-    /// <summary>
-    /// Sets the value of a specific stat die based on its ID and updates the variable and UI element accordingly.
-    /// </summary>
-    /// <param name="statDieID"></param>
-    /// <param name="value"></param>
     public void SetStatDieValue(string statDieID, int value)
     {
         RuntimeStatDie statDie = playerStatDice.Find(die => die.ID.ToLowerInvariant() == statDieID.ToLowerInvariant());
@@ -139,7 +145,7 @@ public class DiceManager : Singleton<DiceManager>
         }
         else
         {
-            Debug.LogWarning($"Stat Die with type '{statDieID}' not found among player's dice.");
+            Debug.LogWarning($"Stat Die with ID \"{statDieID}\" not found among player's dice.");
         }
     }
 
@@ -167,7 +173,36 @@ public class DiceManager : Singleton<DiceManager>
 
     private void OnStatDieClicked(RuntimeStatDie statDie)
     {
-        statDie.ToggleSelection();
+        if (statDie.IsLocked) return;
+
+        List<string> validTargets = new List<string>();
+        string dieType = statDie.Definition.statDieType.ToLowerInvariant();
+
+        // Filter available options based on rules
+        foreach (string opt in currentActiveOptions)
+        {
+            if (opt == "grey" && dieType != "grey") 
+            {
+                continue;
+            }
+            validTargets.Add(opt);
+        }
+
+        if (validTargets.Count > 0)
+        {
+            int currentIndex = validTargets.IndexOf(statDie.AssignedTarget);
+            int nextIndex = currentIndex + 1;
+
+            if (nextIndex >= validTargets.Count)
+            {
+                statDie.AssignTo("");
+            }
+            else
+            {
+                statDie.AssignTo(validTargets[nextIndex]);
+            }
+        }
+
         UpdateSingleStatDieVisual(statDie);
 
         if (DialogueManager.isConversationActive)
@@ -189,80 +224,123 @@ public class DiceManager : Singleton<DiceManager>
         if (statDie.UIObject != null)
         {
             TextMeshProUGUI text = statDie.UIObject.GetComponentInChildren<TextMeshProUGUI>();
-            if (text != null) text.text = statDie.Value.ToString();
+            if (text != null)
+            {
+                if (string.IsNullOrEmpty(statDie.AssignedTarget))
+                {
+                    text.text = statDie.Value.ToString();
+                }
+                else
+                {
+                    text.text = $"{statDie.Value}\n<size=40%>{statDie.AssignedTarget.ToUpper()}</size>";
+                }
+            }
 
             Vector3 localPos = statDie.UIObject.transform.localPosition;
-            localPos.y = statDie.IsSelected ? 20f : 0f;
+            localPos.y = string.IsNullOrEmpty(statDie.AssignedTarget) ? 0f : 20f;
             statDie.UIObject.transform.localPosition = localPos;
+
+            Button button = statDie.UIObject.GetComponent<Button>();
+            if (button != null) button.interactable = !statDie.IsLocked;
         }
     }
     
-    private int GetStatSumByType(string type)
+    // Updates the current state based on dialogue CSV and automatically locks base stats
+    private void UpdateEncounterState(string csv)
     {
-        int sum = 0;
-
-        foreach (RuntimeStatDie statDie in playerStatDice)
+        if (lastActiveTypesCSV == csv.ToLowerInvariant())
         {
-            if (statDie.Definition.statDieType.ToLowerInvariant() == type.ToLowerInvariant())
+            return;
+        }
+
+        lastActiveTypesCSV = csv.ToLowerInvariant();
+        currentActiveOptions = GetActiveTypes(lastActiveTypesCSV);
+
+        foreach (RuntimeStatDie die in playerStatDice)
+        {
+            string type = die.Definition.statDieType.ToLowerInvariant();
+            
+            if (type != "grey" && currentActiveOptions.Contains(type))
             {
-                sum += statDie.Value;
+                die.SetLocked(true);
+                die.AssignTo(type);
+            }
+            else
+            {
+                die.SetLocked(false);
+                if (!string.IsNullOrEmpty(die.AssignedTarget) && !currentActiveOptions.Contains(die.AssignedTarget))
+                {
+                    die.AssignTo("");
+                }
             }
         }
-        return sum;
+        UpdateAllStatDiceVisuals();
     }
 
-    /// <summary>
-    /// Calculates the total power for a given target type based on the player's selected stat dice and the active types provided in a CSV string.
-    /// The calculation includes the sum of all stat dice of the target type and adds the values of any selected stat dice that are either grey or not part of the active types and not of the target type.
-    /// </summary>
-    /// <param name="targetType"></param>
-    /// <param name="activeTypesCSV"></param>
-    /// <returns></returns>
+    private bool IsHighestPower(string targetType, string activeTypesCSV)
+    {
+        UpdateEncounterState(activeTypesCSV);
+
+        int currentPower = CalculateCurrentPower(targetType, activeTypesCSV);
+        foreach (string type in currentActiveOptions)
+        {
+            if (type != targetType.ToLowerInvariant())
+            {
+                int otherPower = CalculateCurrentPower(type, activeTypesCSV);
+                if (otherPower > currentPower)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool IsHighestPowerForResponse(string targetType, string activeTypesCSV)
+    {
+        return IsHighestPower(targetType, activeTypesCSV);
+    }
+
     private int CalculateCurrentPower(string targetType, string activeTypesCSV)
     {
-        string[] separator = new string[] { "," };
-        string[] activeTypes = activeTypesCSV.ToLowerInvariant().Split(separator, StringSplitOptions.RemoveEmptyEntries);
-
-        List<string> activeList = new List<string>();
-        
-        foreach (string t in activeTypes)
-        {
-            activeList.Add(t.Trim());
-        }
+        UpdateEncounterState(activeTypesCSV);
 
         int totalPower = 0;
         string targetLower = targetType.ToLowerInvariant();
 
-        totalPower += GetStatSumByType(targetLower);
-
-        foreach (RuntimeStatDie statDie in playerStatDice)
+        foreach (RuntimeStatDie die in playerStatDice)
         {
-            if (statDie.IsSelected)
+            if (die.AssignedTarget == targetLower)
             {
-                string type = statDie.Definition.statDieType.ToLowerInvariant();
-                
-                bool isGrey = (type == "grey");
-                bool isUnusedWildcard = (!activeList.Contains(type) && !isGrey && type != targetLower);
-
-                if (isGrey || isUnusedWildcard)
-                {
-                    totalPower += statDie.Value;
-                }
+                totalPower += die.Value;
             }
         }
 
         return totalPower;
     }
+
+    private List<string> GetActiveTypes(string activeTypesCSV)
+    {
+        string[] activeTypes = activeTypesCSV.ToLowerInvariant().Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+        List<string> activeList = new List<string>();
+
+        foreach (string type in activeTypes)
+        {
+            string trimmedType = type.Trim();
+            if (!activeList.Contains(trimmedType))
+            {
+                activeList.Add(trimmedType);
+            }
+        }
+
+        return activeList;
+    }
+
+    private bool LuaIsHighestPower(string targetType, string activeTypesCSV)
+    {
+        return IsHighestPower(targetType, activeTypesCSV);
+    }
     
-    /// <summary>
-    /// Checks if the player has enough power for a given target type based on the active types and the required value.
-    /// Returns true if the calculated current power is greater than or equal to the required value; otherwise, returns false.
-    /// This method is registered as a Lua function for use in dialogue scripts.
-    /// </summary>
-    /// <param name="targetType"></param>
-    /// <param name="activeTypesCSV"></param>
-    /// <param name="requiredValue"></param>
-    /// <returns></returns>
     private bool LuaHasPower(string targetType, string activeTypesCSV, double requiredValue)
     {
         return CalculateCurrentPower(targetType, activeTypesCSV) >= (int)requiredValue;
@@ -275,6 +353,8 @@ public class DiceManager : Singleton<DiceManager>
 
     private void LuaClearSelection()
     {
+        lastActiveTypesCSV = "";
+        
         foreach (RuntimeStatDie statDie in playerStatDice)
         {
             statDie.ClearSelection();
