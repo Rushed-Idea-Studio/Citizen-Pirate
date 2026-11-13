@@ -242,6 +242,14 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: CustomFieldType_Text
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 1
       isGroup: 0
@@ -294,6 +302,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
         value: 
         type: 0
         typeString: CustomFieldType_Text
@@ -358,6 +374,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -413,6 +437,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -468,6 +500,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -531,6 +571,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -599,6 +647,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -654,6 +710,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -719,6 +783,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -774,6 +846,14 @@ MonoBehaviour:
         value: SetActive(FrankButton, true); Continue()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -875,6 +955,14 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 1
       isGroup: 0
@@ -933,6 +1021,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1006,6 +1102,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1061,6 +1165,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1119,6 +1231,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1180,6 +1300,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1243,6 +1371,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1298,6 +1434,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1354,6 +1498,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1418,6 +1570,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1473,6 +1633,14 @@ MonoBehaviour:
         value: SetActive(WindowButton, true); Continue()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1574,6 +1742,14 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 1
       isGroup: 0
@@ -1629,6 +1805,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1684,6 +1868,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1739,6 +1931,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1794,6 +1994,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1849,6 +2057,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1911,6 +2127,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1970,6 +2194,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -2025,6 +2257,14 @@ MonoBehaviour:
         value: SetActive(DiceUI, true); SetActive(GetReadyButton, true); Continue()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -2128,6 +2368,14 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 1
       isGroup: 0
@@ -2187,6 +2435,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2242,6 +2498,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2284,31 +2548,39 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
-        value: power=grey;active=red,green,grey
+        value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
-        type: 0
+        type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
         value: 2
-        type: 0
+        type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'JUST WAIT TO SEE WHAT HAPPENS [[lua(GetCurrentPower("grey", "red,green,grey"))]]'
+        value: 'JUST WAIT TO SEE WHAT HAPPENS '
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
+      - title: DiceTarget
+        value: grey
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: red,green,grey
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2339,31 +2611,39 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
-        value: power=green;active=red,green,grey
+        value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
-        type: 0
+        type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
         value: -1
-        type: 0
+        type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'FIND A HIDING SPOT [[lua(GetCurrentPower("green", "red,green,grey"))]]'
+        value: FIND A HIDING SPOT
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
+      - title: DiceTarget
+        value: green
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: red,green,grey
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2396,20 +2676,19 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Description
-        value: power=red;active=red,green,grey
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
         value: 1
-        type: 0
+        type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
         value: 2
-        type: 0
+        type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'PUNCH THE PERSON IMMEDIATELY WHEN THEY ENTER [[lua(GetCurrentPower("red",
-          "red,green,grey"))]]'
+        value: PUNCH THE PERSON IMMEDIATELY WHEN THEY ENTER
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -2418,6 +2697,14 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Sequence
         value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceTarget
+        value: red
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: red,green,grey
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2487,6 +2774,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2542,6 +2837,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2591,6 +2894,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2646,6 +2957,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2700,6 +3019,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2755,6 +3082,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2804,6 +3139,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2861,6 +3204,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2920,6 +3271,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -2975,6 +3334,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -3030,6 +3397,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -3085,6 +3460,14 @@ MonoBehaviour:
         value: LoadLevel(UpperDeckAct01); RollDice()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -3135,6 +3518,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -3191,6 +3582,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -3298,6 +3697,14 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 5
       isRoot: 1
       isGroup: 0
@@ -3353,6 +3760,14 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: DiceTarget
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: DiceActive
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -3388,5 +3803,6 @@ MonoBehaviour:
     Item","value":"True","type":2,"typeString":"CustomFieldType_Boolean"}],"questFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Pictures","value":"[]","type":3,"typeString":"CustomFieldType_Files"},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Success
     Description","value":"","type":0,"typeString":""},{"title":"Failure Description","value":"","type":0,"typeString":""},{"title":"State","value":"unassigned","type":0,"typeString":""},{"title":"Is
     Item","value":"False","type":2,"typeString":"CustomFieldType_Boolean"}],"locationFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""}],"variableFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Initial
-    Value","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""}],"conversationFields":[{"title":"Title","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Actor","value":"0","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"0","type":5,"typeString":"CustomFieldType_Actor"}],"dialogueEntryFields":[{"title":"Title","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Actor","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Menu
-    Text","value":"","type":0,"typeString":""},{"title":"Dialogue Text","value":"","type":0,"typeString":""},{"title":"Sequence","value":"","type":0,"typeString":""}],"actorPrimaryFieldTitles":[],"itemPrimaryFieldTitles":[],"questPrimaryFieldTitles":[],"locationPrimaryFieldTitles":[],"variablePrimaryFieldTitles":[],"conversationPrimaryFieldTitles":[],"dialogueEntryPrimaryFieldTitles":[],"npcLineColor":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"pcLineColor":{"r":0.0,"g":0.0,"b":1.0,"a":1.0},"repeatLineColor":{"r":0.5,"g":0.5,"b":0.5,"a":1.0}}'
+    Value","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""}],"conversationFields":[{"title":"Title","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Actor","value":"0","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"0","type":5,"typeString":"CustomFieldType_Actor"}],"dialogueEntryFields":[{"title":"Title","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Actor","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Menu
+    Text","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Dialogue
+    Text","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Sequence","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"DiceTarget","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"DiceActive","value":"","type":0,"typeString":"CustomFieldType_Text"}],"actorPrimaryFieldTitles":[],"itemPrimaryFieldTitles":[],"questPrimaryFieldTitles":[],"locationPrimaryFieldTitles":[],"variablePrimaryFieldTitles":[],"conversationPrimaryFieldTitles":[],"dialogueEntryPrimaryFieldTitles":["DiceTarget","DiceActive"],"npcLineColor":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"pcLineColor":{"r":0.0,"g":0.0,"b":1.0,"a":1.0},"repeatLineColor":{"r":0.5,"g":0.5,"b":0.5,"a":1.0}}'
