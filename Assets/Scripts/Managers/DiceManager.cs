@@ -125,6 +125,12 @@ public class DiceManager : Singleton<DiceManager>
         AddStatDie(statDieType, generatedID);
     }
 
+    public bool IsValidDieType(string statDieType)
+    {
+        if (string.IsNullOrWhiteSpace(statDieType)) return false;
+        return allPossibleStatDice.Exists(die => die.statDieType.ToLowerInvariant() == statDieType.ToLowerInvariant());
+    }
+
     public void RollStatDice()
     {
         foreach (var statDie in playerStatDice)
@@ -301,7 +307,7 @@ public class DiceManager : Singleton<DiceManager>
         return IsHighestPower(targetType, activeTypesCSV);
     }
 
-    private int CalculateCurrentPower(string targetType, string activeTypesCSV)
+    public int CalculateCurrentPower(string targetType, string activeTypesCSV)
     {
         UpdateEncounterState(activeTypesCSV);
 
